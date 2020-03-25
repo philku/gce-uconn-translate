@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Translate Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    {# Navbar #}
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Translate</a>
+        </div>
+    </nav>
+
+    {# Input Section #}
+    <section>
+        <div class="container">
+            <h2>Input</h2>
+
+            {# From #}
+            <form method="post" action="/">
+
+                <div class="form-group">
+                    <label for="inputText">Text to Translate</label>
+                    <textarea name="inputText" id="inputText" class="form-control"></textarea>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="toLang">Translate To</label>
+                        <select class="form-control" id="toLang" name="toLang">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="de">German</option>
+                        </select>
+                    </div>
+
+                    <div class="offset-md-6 col-md-3">
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block mt-2">Translate</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+    <hr>
+
+    {# Output Section #}
+    <section>
+        <div class="container">
+            <h2>Output</h2>
+            <p>
+                {% if translatedText %}
+                    {{ translatedText }}
+                {% else %}
+                    Enter some text above, select a language to translate from, a language to translate to, and click "Translate".
+                {% endif %}
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
