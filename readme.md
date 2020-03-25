@@ -1,4 +1,9 @@
 # Google Translate API Example
+This is an example site using the Google Cloud Translation API Python SDK
+
+The lab shows students how to initially install the site, but the principals of how it works will need to be expanded upon. 
+I recommend showing the contents of the main.py file and templates/index.html file to students, and using this working example as 
+a starting point to use in their own sites.
 
 ## The Application
 
