@@ -5,13 +5,18 @@ translate_client = translate.Client()
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST','GET'])
+@app.route('/', methods=['POST','GET'])         # This defines when the function below will be called
 def translate():
     if request.method == 'POST':
-        data = request.form.to_dict(flat=True)
-        result = translate_client.translate(data['inputText'], target_language=data["toLang"])
-        return render_template('index.html',translatedText=result['translatedText'])
+
+        # This code will run if a POST is received
+        data = request.form.to_dict(flat=True)  # Reads the body of the post request and assigns it to the "data" variable
+        result = translate_client.translate(data['inputText'], target_language=data["toLang"]) # Sends data to the translate API
+        return render_template('index.html',translatedText=result['translatedText'])    # Renders the page with the response
+
     else:
+
+        # This code will run if a GET is received
         return render_template('index.html')
 
 
