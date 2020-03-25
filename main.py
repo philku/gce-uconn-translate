@@ -9,7 +9,7 @@ app = Flask(__name__)
 def translate():
     if request.method == 'POST':
         data = request.form.to_dict(flat=True)
-        result = translate_client.translate(data['inputText'], target_language=data["translateTo"])
+        result = translate_client.translate(data['inputText'], target_language=data["toLang"])
         return render_template('index.html',translatedText=result['translatedText'])
     else:
         return render_template('index.html')
