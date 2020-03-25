@@ -1,9 +1,12 @@
 from flask import Flask, request, render_template
+
+# START Translate requirements
 from google.cloud import translate_v2 as translate
 translate_client = translate.Client()
+# END Translate requirements
 
 
-app = Flask(__name__)
+app = Flask(__name__)   # Flask is the web framework we're using
 
 @app.route('/', methods=['POST','GET'])         # This defines when the function below will be called
 def translate():
@@ -20,5 +23,6 @@ def translate():
         return render_template('index.html')
 
 
+# Don't worry about this part
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
